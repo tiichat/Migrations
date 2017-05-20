@@ -43,7 +43,7 @@ class <%= $name %> extends AbstractMigration
     {
 <% if ($action == 'view') : %>
         $count = $this->execute(
-            'create view <%= $item%> as ' . $this->read($ddl)
+            'create view view_members as ' . "\n" . $this->read($ddl)
         );
 <% else : %>
         $count = $this->execute(
