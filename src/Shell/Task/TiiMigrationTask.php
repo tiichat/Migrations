@@ -28,8 +28,11 @@ class TiiMigrationTask extends CakeMigrationTask
      */
     public function fileName($name)
     {
-        $name = $this->getMigrationName($name);
-        return Util::getCurrentTimestamp() . '_' . Inflector::camelize($name) . $this->version . '.php';
+        if ($this->useTii) {
+            $name = $this->getMigrationName($name);
+            return Util::getCurrentTimestamp() . '_' . Inflector::camelize($name) . $this->version . '.php';
+        }
+        return parent::fineName($name);
     }
 
     /**
