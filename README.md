@@ -1,6 +1,6 @@
 # TiiMigration plugin
 
-CakePHP3(Phinx) の Migration を利用し、view や stored procedure を管理するためのプラグイン。
+CakePHP3(Phinx) の Migration を利用し、view や stored procedure を bake するためのプラグイン。
 
 ## Requirements
 
@@ -10,7 +10,7 @@ CakePHP3(Phinx) の Migration を利用し、view や stored procedure を管理
 
 現状、composer に対応できていないので、手動でインストールする必要があります。
 
-まず、plugins に、tiichat\migrations フォルダを作成し、ダウンロードしたファイルをすべてコピーします。
+まず、plugins に、tiichat\migrations フォルダを作成しチェックアウト、または、ダウンロードします。
 
 composer.json の autoload に、`"Tiichat\\...` の行を追記します。
 ```json
@@ -22,7 +22,7 @@ composer.json の autoload に、`"Tiichat\\...` の行を追記します。
     },
 ```
 
-ターミナルで、以下コマンドを実行し、新しいオートローダーを作成します。
+ターミナルで、以下コマンドを実行し、オートローダーを再作成します。
 ```
 > composer dumpautoload
 ```
@@ -30,16 +30,6 @@ composer.json の autoload に、`"Tiichat\\...` の行を追記します。
 config\bootstrap.php に、プラグインをロードする記述を追記します。
 ```php
 Plugin::load('Tiichat/Migrations');
-```
-
-vendor\cakephp-plugins.php に、`"Tiichat\\...` の行を追記します。
-```php
-    'plugins' => [
-        'Bake' => $baseDir . '/vendor/cakephp/bake/',
-        'DebugKit' => $baseDir . '/vendor/cakephp/debug_kit/',
-        'Migrations' => $baseDir . '/vendor/cakephp/migrations/',
-        'Tiichat/Migrations' => $baseDir . '/plugins/tiichat/migrations/'
-    ]
 ```
 
 ## Usage
