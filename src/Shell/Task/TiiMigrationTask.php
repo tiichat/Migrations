@@ -4,6 +4,7 @@ namespace Tiichat\Migrations\Shell\Task;
 use Cake\Utility\Inflector;
 use Cake\Filesystem\Folder;
 use Cake\Filesystem\File;
+use Phinx\Util\Util;
 use Migrations\Shell\Task\MigrationTask as CakeMigrationTask;
 
 class TiiMigrationTask extends CakeMigrationTask
@@ -20,6 +21,15 @@ class TiiMigrationTask extends CakeMigrationTask
     public function name()
     {
         return 'tii_migration';
+    }
+
+    /**
+     * ファイル名に、バージョン番号を付与する。
+     */
+    public function fileName($name)
+    {
+        $name = $this->getMigrationName($name);
+        return Util::getCurrentTimestamp() . '_' . Inflector::camelize($name) . $this->version . '.php';
     }
 
     /**
