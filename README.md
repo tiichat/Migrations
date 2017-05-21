@@ -17,7 +17,7 @@ composer.json の autoload に、`"Tiichat\\...` の行を追記します。
     "autoload": {
         "psr-4": {
             "App\\": "src",
-            "Tiichat\\Migrations\\": "./vendor/tiichat/migrations/src"
+            "Tiichat\\Migrations\\": "./plugins/tiichat/migrations/src"
         }
     },
 ```
