@@ -25,6 +25,8 @@ class TiiMigrationTask extends CakeMigrationTask
 
     /**
      * ファイル名に、バージョン番号を付与する。
+     *
+     * @override
      */
     public function fileName($name)
     {
